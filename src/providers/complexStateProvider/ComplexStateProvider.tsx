@@ -11,7 +11,6 @@ export const ComplexStateContext = createContext({
 });
 
 interface ComplexStateProviderProps {
-  state: typeof initialState;
   children: React.ReactNode;
 }
 
@@ -20,7 +19,7 @@ export function ComplexStateProvider({ children }: ComplexStateProviderProps) {
 
   const ctx = useMemo(() => {
     return {
-      randomNumber: state,
+      randomNumber: state || 0,
       neverChange: true
     };
   }, [state]);
